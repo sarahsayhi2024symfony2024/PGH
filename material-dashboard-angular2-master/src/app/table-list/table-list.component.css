@@ -1,0 +1,19 @@
+/* Specific blue styling for cards */
+.card-header.blue-card {
+    background-color: #17aad6; /* Blue background */
+    color: #ffffff; /* White text color */
+  }
+  
+  .card-header.blue-card thead th {
+    background-color: #0056b3; /* Darker blue for header background */
+    color: #ffffff; /* White text color */
+  }
+  
+  .card-header.blue-card table thead th {
+    color: #ffffff; /* White text color for table header */
+  }
+  
+  .card-header.blue-card table tbody tr {
+    background-color: #e3f2fd; /* Light blue background for table rows */
+  }
+ 

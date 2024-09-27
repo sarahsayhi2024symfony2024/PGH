@@ -1,0 +1,359 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header light-card d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4>Fiche de poste</h4>
+                        </div>
+                        <div id="table-to-export">
+<button class="btn btn-danger" id="add-poste-btn" data-toggle="modal" data-target="#addPosteModal">Add Poste</button>
+<a href="#" class="btn btn-light ml-2" id="export-excel" style="background-color: #217346; color: white;" (click)="exportToExcel()">
+    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+  </a>
+  <a href="#" class="btn btn-light ml-2" id="export-pdf" style="background-color: #d32f2f; color: white;" (click)="exportToPDF()">
+    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+  </a>
+                        </div>
+                    </div>
+                    <div class="card-body" id="export-table">
+                        <div class="table-responsive">
+                            <table class="table" id="export-table">
+                                <thead>
+                                    <tr>
+                                        <td colspan="19" class="table-secondary">Poste Configuration</td>
+                                        <td colspan="8" class="table-primary">Carte Réseaux</td>
+                                       
+                                        <td colspan="4" class="table-danger">Onduleur</td>
+                                        <td colspan="5" class="table-success">Imprimante</td>
+                                        <td colspan="4" class="table-warning">Scanner</td>
+                                        <td class="table-active">Action</td>
+                                    </tr>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Societé</th>
+                                        <th>Service</th>
+                                        <th>Code Poste</th>
+                                        <th>Date d'achat</th>
+                                        <th>Marque</th>
+                                        <th>Processeur</th>
+                                        <th>Vitesse</th>
+                                        <th>RAM</th>
+                                        <th>Taille Disque</th>
+                                        <th>Partition</th>
+                                        <th>Système d'exploitation</th>
+                                        <th>Service Pack</th>
+                                        <th>N série Unité</th>
+                                        <th>Code Inventaire</th>
+                                        <th>Marque Écran</th>
+                                        <th>Taille Écran</th>
+                                        <th>Numéro de série Écran</th>
+                                        <th>Code Inventaire Écran</th>
+                                        <th>Adresse IP</th>
+                                        <th>Carte Réseau</th>
+                                        <th>Type</th>
+                                        <th>Débit</th>
+                                        <th>Numéro De poste</th>
+                                        <th>Modèle</th>
+                                        <th>Tag Tel</th>
+                                        <th>Adresse Mac</th>
+                    
+                                        <th>Marque</th>
+                                        <th>Capacité</th>
+                                        <th>Numéro de série</th>
+                                        <th>Code Inventaire</th>
+                                        <th>Code Inventaire</th>
+                                        <th>Marque</th>
+                                        <th>Modele</th>
+                                        <th>Type</th>
+                                        <th>Numéro de serie</th>
+                                        <th>Code Inventaire</th>
+                                        <th>Marque</th>
+                                        <th>Modele</th>
+                                        <th>Numéro de serie</th>
+                                      
+
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let poste of postes">
+                                        <td>{{ poste.id }}</td>
+                                        <td>{{ poste.societe }}</td>
+                                        <td>{{ poste.service }}</td>
+                                        <td>{{ poste.codePoste }}</td>
+                                        <td>{{ poste.dateAchat | date }}</td>
+                                        <td>{{ poste.marque }}</td>
+                                        <td>{{ poste.processeur }}</td>
+                                        <td>{{ poste.vitesse }}</td>
+                                        <td>{{ poste.ram }}</td>
+                                        <td>{{ poste.tailleDisque }}</td>
+                                        <td>{{ poste.disque }}</td>
+                                        <td>{{ poste.systemeExploitation }}</td>
+                                        <td>{{ poste.servicePack }}</td>
+                                        <td>{{ poste.numeroSerieUnite }}</td>
+                                        <td>{{ poste.codePoste }}</td>
+                                        <td>{{ poste.ecrans[0]?.marqueEcran }}</td>
+                                        <td>{{ poste.ecrans[0]?.taille }}</td>
+                                        <td>{{ poste.ecrans[0]?.numeroSerieEcran}}</td>
+                                        <td>{{ poste.ecrans[0]?.codeInventaireEcran }}</td>
+                                        <td>{{ poste.carteReseau?.adresseIp }}</td>
+                                        <td>{{ poste.carteReseau?.carteRex }}</td>
+                                        <td>{{ poste.carteReseau?.typeCarteReseau }}</td>
+                                        <td>{{ poste.carteReseau?.debit }}</td>
+                                        <td>{{ poste.carteReseau?.numeroPoste }}</td>
+                                        <td>{{ poste.carteReseau?.modelCarteReseau }}</td>
+                                        <td>{{ poste.carteReseau?.tagTel }}</td>
+                                        <td>{{ poste.carteReseau?.mac }}</td>
+                                        
+                                        
+                                        <td>{{ poste.onduleur?.marqueOnduleur }}</td>
+                                        <td>{{ poste.onduleur?.capacite }}</td>
+                                        <td>{{ poste.onduleur?.numeroSerieOnduleur }}</td>
+                                        <td>{{ poste.onduleur?.codeInventaire }}</td>
+                                        <td>{{ poste.imprimante?.codeInventaire
+                                        }}</td>
+                                        <td>{{ poste.imprimante?.marqueImprimante }}</td>
+                                        <td>{{ poste.imprimante?.modeleImprimante }}</td>
+                                        <td>{{ poste.imprimante?.typeImprimante }}</td>
+                                        <td>{{ poste.imprimante?.numeroSerieImprimante}}</td>
+                                        <td>{{ poste.scanner?.codeInventaire }}</td>
+
+                                        <td>{{ poste.scanner?.marqueScanner }}</td>
+                                        <td>{{ poste.scanner?.modeleScanner }}</td>
+                                        <td>{{ poste.scanner?.numeroSerieScanner }}</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-light btn-sm" style="background: rgb(189, 189, 203);"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btn-sm" (click)="deletePoste(poste.id)">
+                                                    <i class="fa fa-trash"></i>
+                                                  </button>
+                                                  <button class="btn btn-danger btn-sm" style="background: blue;" (click)="exportToWord()">
+                                                    <i class="fa fa-file-word-o"></i>
+                                                  </button>
+                                                  
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Modal pour ajouter un nouveau Poste -->
+                <div class="modal fade" id="addPosteModal" tabindex="-1" role="dialog" aria-labelledby="addPosteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addPosteModalLabel">Ajouter un Nouveau Poste</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Formulaire d'ajout de Poste -->
+                                <form id="addPosteForm"[formGroup]="addPosteForm" (ngSubmit)="onSubmit()" >
+                                    <div class="form-group">
+                                        <label for="societe">Société</label>
+                                        <input type="text" class="form-control" id="societe" name="societe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="service">Service</label>
+                                        <input type="text" class="form-control" id="service" name="service" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="codePoste">Code Poste</label>
+                                        <input type="text" class="form-control" id="codePoste" name="codePoste" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dateAchat">Date d'Achat</label>
+                                        <input type="date" class="form-control" id="dateAchat" name="dateAchat" required>
+                                    </div>
+                                    <h4 style="color: red;">Poste Configuration :</h4>
+                                    <div class="form-group">
+                                        <label for="marque">Marque</label>
+                                        <input type="text" class="form-control" id="marque" name="marque" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="processeur">Processeur</label>
+                                        <input type="text" class="form-control" id="processeur" name="processeur" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vitesse">Vitesse</label>
+                                        <input type="text" class="form-control" id="vitesse" name="vitesse" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ram">RAM</label>
+                                        <input type="text" class="form-control" id="ram" name="ram" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tailleDisque">Taille Disque</label>
+                                        <input type="text" class="form-control" id="tailleDisque" name="tailleDisque" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="disque">Partition</label>
+                                        <input type="text" class="form-control" id="disque" name="disque" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="systemeExploitation">Système d'exploitation</label>
+                                        <input type="text" class="form-control" id="systemeExploitation" name="systemeExploitation" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="servicePack">Service Pack</label>
+                                        <input type="text" class="form-control" id="servicePack" name="servicePack" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroSerieUnite">N série Unité</label>
+                                        <input type="text" class="form-control" id="numeroSerieUnite" name="numeroSerieUnite" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="codeInventaire">Code Inventaire</label>
+                                        <input type="text" class="form-control" id="codeInventairePoste" name="codeInventairePoste" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="marqueEcran">Marque Écran</label>
+                                        <input type="text" class="form-control" id="marqueEcran" name="marqueEcran">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="taille">Taille Écran</label>
+                                        <input type="text" class="form-control" id="taille" name="taille">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroSerieEcran">Numéro de série Écran</label>
+                                        <input type="text" class="form-control" id="numeroSerieEcran" name="numeroSerieEcran">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="codeInventaireEcran">Code Inventaire Écran</label>
+                                        <input type="text" class="form-control" id="codeInventaireEcran" name="codeInventaireEcran">
+                                    </div>
+                                    <h4 style="color: red;">Carte Réseaux :</h4>
+                                    <div class="form-group">
+                                        <label for="adresseIP">Adresse IP</label>
+                                        <input type="text" class="form-control" id="adresseIP" name="adresseIP">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="carteRex">Carte Réseau</label>
+                                        <input type="text" class="form-control" id="carteRex" name="carteRex">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="typeCarteReseau">Type</label>
+                                        <input type="text" class="form-control" id="typeCarteReseau" name="typeCarteReseau">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="debit">Débit</label>
+                                        <input type="text" class="form-control" id="debit" name="debit">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroPoste">Numéro De poste</label>
+                                        <input type="text" class="form-control" id="numeroPoste" name="numeroPoste">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modelCarteReseau">Modèle</label>
+                                        <input type="text" class="form-control" id="modelCarteReseau" name="modelCarteReseau">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tagTel">Tag Tel</label>
+                                        <input type="text" class="form-control" id="tagTel" name="tagTel">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="adresseMac">Adresse Mac</label>
+                                        <input type="text" class="form-control" id="adresseMac" name="adresseMac">
+                                    </div>
+                                   
+                            
+                                    <h4 style="color: red;">Onduleur : </h4>
+                                    <div class="form-group">
+                                        <label for="marqueOnduleur">Marque</label>
+                                        <input type="text" class="form-control" id="marqueOnduleur" name="marqueOnduleur">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroSerieOnduleur">Numéro de série</label>
+                                        <input type="text" class="form-control" id="numeroSerieOnduleur" name="numeroSerieOnduleur">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="marqueImprimante">Marque</label>
+                                        <input type="text" class="form-control" id="marqueImprimante" name="marqueImprimante">
+                                    </div>
+                                  
+                                   
+                                    <h4 style="color: red;">Imprimante :
+
+                                    </h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="CodeInventaire">Code Inventaire</label>
+                                        <input type="text" class="form-control" id="codeInventaire" name="codeInventaire">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="marque">Marque</label>
+                                        <input type="text" class="form-control" id="marque" name="marque">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modele">Modele</label>
+                                        <input type="text" class="form-control" id="modele" name="modele">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="typeImprimante">Type</label>
+                                        <input type="text" class="form-control" id="typeImprimante" name="typeImprimante">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroSerieImprimante">Numéro de serie</label>
+                                        <input type="text" class="form-control" id="numeroSerieImprimante" name="numeroSerieImprimante">
+                                    </div>
+                                    <h4 style="color: red;">Scanner : </h4>
+                                    <div class="form-group">
+                                        <label for="codeInventaireScanner">Code Inventaire</label>
+                                        <input type="text" class="form-control" id="codeInventaireScanner" name="codeInventaireScanner">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="marqueScanner">Marque</label>
+                                        <input type="text" class="form-control" id="marqueScanner" name="marqueScanner">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modeleScanner">Modele</label>
+                                        <input type="text" class="form-control" id="modeleScanner" name="modeleScanner">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroSerieScanner">Numéro de serie </label>
+                                        <input type="text" class="form-control" id="numeroSerieScanner" name="numeroSerieScanner">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="typeImprimante">Type</label>
+                                        <input type="text" class="form-control" id="typeImprimante" name="typeImprimante">
+                                    </div>
+                                   
+                                   
+
+
+                                   
+                                    <!-- Boutons de soumission et d'annulation -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn btn-primary" style="background-color: #b02751;">Ajouter Poste</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+<!-- Script JavaScript pour ouvrir le modal lors du clic sur le bouton "Add Poste" -->
+<script>
+    document.getElementById('add-poste-btn').addEventListener('click', function() {
+        $('#addPosteModal').modal('show');
+    });
+
+    // Script pour gérer la soumission du formulaire
+    document.getElementById('addPosteForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Logique pour ajouter un poste
+        // Envoyer les données du formulaire à l'API backend ou effectuer une opération appropriée
+        $('#addPosteModal').modal('hide');
+    });
+</script>
+
+           

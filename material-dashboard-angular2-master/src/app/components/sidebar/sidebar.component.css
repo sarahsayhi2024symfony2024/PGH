@@ -1,0 +1,33 @@
+/* Container for logos */
+.logo-container {
+    display: flex;
+    justify-content: space-between; /* Align logos to the left and right */
+    align-items: center;
+    padding: 10px;
+    position: relative; /* Ensure it's positioned relative to the sidebar */
+}
+
+/* Style for the left logo */
+.logo-left img {
+    max-height: 80px; /* Increase height for larger size */
+    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Style for the right logo */
+.logo-right img {
+    max-height: 90px; /* Increase height for larger size */
+    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Move menu buttons down */
+.sidebar-wrapper {
+    padding-top: 100px; /* Adjust to provide space for logos */
+}
